@@ -26,5 +26,9 @@ args = parser.parse_args()
 cmd = f'curl https://adventofcode.com/{args.year}/day/{args.day}/input --cookie "session={SESSION}" -A {useragent}'
 output = subprocess.check_output(cmd, shell=True)
 output = output.decode('utf-8')
+
+with open(rf"C:/Users/tkarakay/Desktop/GitHub/advent-of-code/inputs/day{args.day}_input.txt", "w") as f:
+	f.write(output)
+	f.close()
 print(output, end='')
 print('\n'.join(output.split('\n')[:10]), file=sys.stderr)
